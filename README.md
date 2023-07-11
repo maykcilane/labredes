@@ -25,3 +25,21 @@ docker pull maykcilane/servidor:v3
 ## Execução do container
 ##### Rodando o container SERVIDOR
 ⚠️ Este comando deve ser executado antes do container CLIENTE para evitar problemas de comunicação ⚠️
+
+Execute este comando substituindo <Escreva o diretório em que esta a imagem que deseja>  pelo diretório que contem o arquivo que deseja enviar.
+
+##### EX:  docker run -it --rm --network=host -v /root/teste:/app/pasta maykcilane/servidor:v3 python3 servidor-tcp.py 
+
+```
+docker run -it --rm --network=host -v <Escreva o diretório em que esta a imagem que deseja> :/app/pasta maykcilane/servidor:v3 python3 servidor-tcp.py
+```
+##### Rodando o container CLIENTE
+⚠️ Este comando deve ser executado depois do container SERVIDOR para evitar problemas de comunicação ⚠️
+
+Execute este comando substituindo <Escreva o diretório em que esta a imagem que deseja>  pelo diretório que contem o arquivo que deseja enviar.
+
+##### EX:  docker run -it --rm --network=host -v /root/teste:/app/pasta maykcilane/cliente:v3 python3 cliente-tcp.py 
+
+```
+docker run -it --rm --network=host -v <Escreva o diretório em que esta a imagem que deseja> :/app/pasta maykcilane/servidor:v3 python3 cliente-tcp.py
+```
